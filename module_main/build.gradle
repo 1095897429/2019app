@@ -1,47 +1,40 @@
-apply plugin: 'com.android.application'
+
+
+if(Boolean.valueOf(rootProject.ext.isModule))
+    apply plugin: 'com.android.application'
+else
+    apply plugin: 'com.android.library'
+
+apply plugin: 'com.jakewharton.butterknife'
 
 android {
-
-    //签名配置
-    signingConfigs{
-        config{
-            keyAlias 'key0'
-            keyPassword '123456'
-            storePassword '123456'
-            storeFile file('/Users/niaogebiji/erciyuan.jks')
-        }
-    }
-    //编译sdk版本
     compileSdkVersion rootProject.ext.versions.compileSdkVersion
 
-    //默认配置
+
+
     defaultConfig {
-        applicationId rootProject.ext.versions.applicationId
         minSdkVersion rootProject.ext.versions.minSdkVersion
         targetSdkVersion rootProject.ext.versions.targetSdkVersion
         versionCode rootProject.ext.versions.versionCode
         versionName rootProject.ext.versions.versionName
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
 
-
-    //构建类型，测试版 发布版
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            signingConfig signingConfigs.config
-        }
-        debug{
-            signingConfig signingConfigs.config
         }
     }
+
 }
 
 dependencies {
-    //公用依赖包
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //公共依赖包
     implementation project(':common_base')
-
-    //黄油刀 -- 主壳app也需要加入吗？
+    //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
 }

@@ -1,0 +1,21 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.module_main" >
+
+    <!-- 在Module单独开发模式下使用该mainfest -->
+    <application
+        android:name=".common.MainApplication"
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/AdmTheme"
+        >
+
+        <activity android:name=".ui.LoadingActivity">
+            <intent-filter>
+
+            </intent-filter>
+        </activity>
+
+
+    </application>
+
+</manifest>
