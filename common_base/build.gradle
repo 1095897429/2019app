@@ -35,4 +35,8 @@ dependencies {
     //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
     api rootProject.ext.dependencies["butterknife"]
+    //MultiDex分包
+    api rootProject.ext.dependencies["multidex"]
+    //日志
+    api rootProject.ext.dependencies["logger"]
 }

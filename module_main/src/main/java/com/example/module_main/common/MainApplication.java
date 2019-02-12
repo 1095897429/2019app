@@ -1,6 +1,6 @@
 package com.example.module_main.common;
 
-import android.app.Application;
+import com.zl.common_base.base.BaseApplication;
 
-public class MainApplication extends Application {
+public class MainApplication extends BaseApplication {
 }

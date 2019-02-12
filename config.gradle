@@ -22,6 +22,10 @@ ext{
             espressoVersion   : "3.0.2",
 
             butterknifeVersion      : "8.4.0",
+
+            multidexVersion         : "1.0.2",//分包
+
+            loggerVersion           : "2.2.0",//log
     ]
 
     dependencies = [
@@ -38,6 +42,12 @@ ext{
             //黄油刀
             "butterknife_compiler": "com.jakewharton:butterknife-compiler:${versions["butterknifeVersion"]}",
             "butterknife"         : "com.jakewharton:butterknife:${versions["butterknifeVersion"]}",
+
+            //方法数超过65535解决方法64K MultiDex分包方法
+            "multidex"            : "com.android.support:multidex:${versions["multidexVersion"]}",
+
+            //日志
+            "logger"              : "com.orhanobut:logger:${versions["loggerVersion"]}",
 
     ]
 }
