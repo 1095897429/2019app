@@ -1,2 +1,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.module_main" />
+    package="com.example.module_main" >
+
+
+    <!-- app壳调用程序的入口 -->
+    <application>
+        <activity android:name=".ui.loading.LoadingActivity"
+            android:theme="@style/Theme.AppStartLoadTranslucent"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".ui.main.MainActivity"></activity>
+
+    </application>
+
+</manifest>
+

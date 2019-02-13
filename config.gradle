@@ -8,7 +8,7 @@ ext{
     isModule = false
 
     versions = [
-            applicationId  : "om.zl.a2019app", //应用ID
+            applicationId  : "com.zl.a2019app", //应用ID
             versionCode    : 1, //版本号
             versionName    : "1.0.0", //版本名称
 
@@ -26,6 +26,13 @@ ext{
             multidexVersion         : "1.0.2",//分包
 
             loggerVersion           : "2.2.0",//log
+
+            javaxVersion            : "1.2",
+            lombokVersion           : "1.16.6",//省略set get
+
+            arouterApiVersion       : "1.4.0",
+            arouterCompilerVersion  : "1.2.1",
+            arouterannotationVersion: "1.0.4",
     ]
 
     dependencies = [
@@ -48,6 +55,16 @@ ext{
 
             //日志
             "logger"              : "com.orhanobut:logger:${versions["loggerVersion"]}",
+
+            //lombok
+            "lombokJavax"         : "javax.annotation:javax.annotation-api:${versions["javaxVersion"]}",
+            "lombok"              : "org.projectlombok:lombok:${versions["lombokVersion"]}",
+
+            //路由
+            "arouter_api"         : "com.alibaba:arouter-api:${versions["arouterApiVersion"]}",
+            "arouter_compiler"    : "com.alibaba:arouter-compiler:${versions["arouterCompilerVersion"]}",
+            "arouter_annotation"  : "com.alibaba:arouter-annotation:${versions["arouterannotationVersion"]}",
+
 
     ]
 }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--自定义加载框-->
+    <declare-styleable name="LVCircleRing">
+        <attr name="bgColor" format="color"></attr>
+        <attr name="barColor" format="color"></attr>
+    </declare-styleable>
+</resources>

@@ -11,6 +11,16 @@ android {
         versionName rootProject.ext.versions.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //MultiDex分包方法
+        multiDexEnabled true
+
+        //Arouter路由配置 moduleName 用 AROUTER_MODULE_NAME 替换
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
 
     }
 
@@ -39,4 +49,12 @@ dependencies {
     api rootProject.ext.dependencies["multidex"]
     //日志
     api rootProject.ext.dependencies["logger"]
+    //lombok
+    api rootProject.ext.dependencies["lombok"]
+    api rootProject.ext.dependencies["lombokJavax"]
+
+    //Arouter路由
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    api rootProject.ext.dependencies["arouter_api"]
+    api rootProject.ext.dependencies["arouter_annotation"]
 }

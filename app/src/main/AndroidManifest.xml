@@ -3,19 +3,18 @@
     package="com.zl.a2019app">
 
     <application
+        android:name=".AppApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        android:theme="@style/AdmTheme">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!--小米全面屏问题-->
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.2" />
+
     </application>
 
 </manifest>

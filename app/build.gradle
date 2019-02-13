@@ -22,6 +22,16 @@ android {
         versionCode rootProject.ext.versions.versionCode
         versionName rootProject.ext.versions.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        //MultiDex分包方法
+        multiDexEnabled true
+
+        //Arouter路由配置
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+                includeCompileClasspath = true
+            }
+        }
     }
 
 
@@ -42,6 +52,12 @@ dependencies {
     //公用依赖包
     implementation project(':common_base')
 
-    //黄油刀 -- 主壳app也需要加入吗？
+    //黄油刀
     annotationProcessor rootProject.ext.dependencies["butterknife_compiler"]
+
+    if(!Boolean.valueOf(rootProject.ext.isModule)){
+        //main模块
+        implementation project(':module_main')
+        implementation project(':module_wanandroid')
+    }
 }
