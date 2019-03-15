@@ -22,6 +22,9 @@ android {
             }
         }
 
+        //bmob 兼容Android6.0系统所需，如果这句话报错，可在dependencies标签下使用compile 'cn.bmob.android:http-legacy:1.0'
+        useLibrary 'org.apache.http.legacy'
+
     }
 
     buildTypes {
@@ -57,4 +60,24 @@ dependencies {
     annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
     api rootProject.ext.dependencies["arouter_api"]
     api rootProject.ext.dependencies["arouter_annotation"]
+
+    //BaseRecyclerViewAdapterHelper
+    api rootProject.ext.dependencies["base_recyclerview"]
+
+    //bmob
+    api rootProject.ext.dependencies["bmob"]
+
+    //网络
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+    api rootProject.ext.dependencies["okio"]
+    api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["okhttp"]
+    api rootProject.ext.dependencies["retrofit2"]
+    api rootProject.ext.dependencies["retrofitconvert"]
+    api rootProject.ext.dependencies["rradapter"]
+    api rootProject.ext.dependencies["okhttplogging"]
+
+    //eventbus 发布/订阅事件总线
+    api rootProject.ext.dependencies["eventbus"]
 }

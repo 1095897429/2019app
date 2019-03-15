@@ -12,9 +12,13 @@ import android.view.ViewStub;
 import android.widget.TextView;
 
 import com.zl.common_base.R;
+import com.zl.common_base.bean.Event;
 import com.zl.common_base.widget.LoadingDialog;
+import com.zl.common_base.widget.StatusBarUtil;
 
-import org.w3c.dom.Text;
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -46,7 +50,17 @@ public abstract class BaseFragment extends Fragment {
         ((ViewGroup)rootView.findViewById(R.id.fl_content)).addView(getLayoutInflater().inflate(getLayoutId(),null));
         //初始化ButterKnife
         mUnbinder = ButterKnife.bind(this,rootView);
+        //设置状态栏
+        setStatusBar();
+        //注册
+         if (regEvent()) {
+            EventBus.getDefault().register(this);
+        }
         return rootView;
+    }
+
+    protected void setStatusBar() {
+        StatusBarUtil.setColor(getActivity(),getResources().getColor(R.color.colorPrimary));
     }
 
 
@@ -62,6 +76,10 @@ public abstract class BaseFragment extends Fragment {
         if(null != mUnbinder){
             mUnbinder.unbind();
             mUnbinder = null;
+        }
+
+        if (regEvent()) {
+            EventBus.getDefault().unregister(this);
         }
     }
 
@@ -111,4 +129,23 @@ public abstract class BaseFragment extends Fragment {
     protected abstract int getLayoutId();
 
     protected abstract void initView();
+
+
+
+    //*************************************** eventbus实现*************************************
+
+    /** 需要接收事件 重写该方法 并返回true */
+    protected boolean regEvent(){
+        return false;
+    }
+
+
+    /** 子类接受事件 重写该方法 */
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEventBus(Event event){
+
+    }
+    //*************************************** eventbus实现*************************************
+
+
 }

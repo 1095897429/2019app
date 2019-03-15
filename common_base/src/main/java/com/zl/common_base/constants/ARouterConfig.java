@@ -10,4 +10,14 @@ public interface ARouterConfig {
     String WAN_MAIN_FRAGMENT = "/wan/WanHomeFragment";
 
 
+    //************************************Main模块*****************************************/
+    /** main中心 */
+    String CENTER_FRAGMENT = "/main/CenterFragment";
+
+
+    //*************************************User模块*****************************************/
+    /** 用户模块 */
+    String USER_FRAGMENT = "/user/UserFragment";
+
+
 }

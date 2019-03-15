@@ -4,6 +4,8 @@ if(Boolean.valueOf(rootProject.ext.isModule))
 else
     apply plugin: 'com.android.library'
 
+apply plugin: 'com.jakewharton.butterknife'
+
 
 android {
     compileSdkVersion rootProject.ext.versions.compileSdkVersion

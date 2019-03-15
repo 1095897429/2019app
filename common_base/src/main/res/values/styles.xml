@@ -2,7 +2,13 @@
 <resources>
 
     <!-- 应用主题 -->
-    <style name="AdmTheme" parent="@android:style/Theme.NoTitleBar"></style>
+    <style name="AdmTheme" parent="@android:style/Theme.NoTitleBar">
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
 
     <!-- app启动主题 -->
     <style name="Theme.AppStartLoadTranslucent" parent="android:Theme">

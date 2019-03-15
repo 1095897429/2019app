@@ -1,12 +1,15 @@
 package com.example.module_main.ui.main;
 
 
+import android.Manifest;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
 import android.view.KeyEvent;
+import android.widget.RadioGroup;
 
 import com.example.module_main.R;
+import com.example.module_main.R2;
 import com.example.module_main.bean.AppInfo;
 import com.example.module_main.bean.Template;
 import com.example.module_main.mvp.contract.MainContract;
@@ -16,10 +19,14 @@ import com.zl.common_base.base.BaseFragment;
 import com.zl.common_base.base.BaseMvpActivity;
 import com.zl.common_base.constants.ARouterConfig;
 import com.zl.common_base.utils.ARouterUtils;
+import com.zl.common_base.utils.PermissionUtils;
 import com.zl.common_base.utils.ToastUtils;
 
+import java.nio.channels.Channel;
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 
 /***
  * main程序的主界面
@@ -31,6 +38,9 @@ import java.util.List;
 public class MainActivity extends BaseMvpActivity<MainPresenter> implements MainContract.View {
 
 
+    @BindView(R2.id.rg_main)
+    RadioGroup mainTab;
+
     private long mExitTime;
 
     /** 存放切换Fragment */
@@ -38,6 +48,10 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     //玩Android模块Fragment
     private BaseFragment wanFragment = ARouterUtils.getFragment(ARouterConfig.WAN_MAIN_FRAGMENT);
+    //中间模块Fragment
+    private BaseFragment centerFragment = ARouterUtils.getFragment(ARouterConfig.CENTER_FRAGMENT);
+    //用户模块Fragment
+    private BaseFragment userFragment = ARouterUtils.getFragment(ARouterConfig.USER_FRAGMENT);
 
 
     @Override
@@ -53,6 +67,24 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     @Override
     protected void initView() {
         changeFragment(ARouterConfig.WAN_MAIN_FRAGMENT);
+
+        mainTab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.rb_main){
+                    changeFragment(ARouterConfig.WAN_MAIN_FRAGMENT);
+                }else if(checkedId == R.id.rb_center){
+                    changeFragment(ARouterConfig.CENTER_FRAGMENT);
+                }else if(checkedId == R.id.rb_user){
+                    changeFragment(ARouterConfig.USER_FRAGMENT);
+                }
+            }
+        });
+
+        //检查文件权限
+        if(PermissionUtils.checkPermissions(this,Manifest.permission.WRITE_EXTERNAL_STORAGE)){
+            mPresenter.checkUpdate();
+        }
     }
 
 
@@ -70,11 +102,16 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
         }else{
             if(TextUtils.equals(tag,ARouterConfig.WAN_MAIN_FRAGMENT)){
                 fragment = wanFragment;
+            }else if(TextUtils.equals(tag,ARouterConfig.CENTER_FRAGMENT)){
+                fragment = centerFragment;
+            }else if(TextUtils.equals(tag,ARouterConfig.USER_FRAGMENT)){
+                fragment = userFragment;
             }
+
             mFragmentList.add(fragment);
             transaction.add(R.id.fl_context,fragment,tag);//新增
         }
-        transaction.commitNowAllowingStateLoss();
+        transaction.commit();
     }
 
     private void hideFragment() {
@@ -92,7 +129,6 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
 
     @Override
     public void tabList(List<Template> blockList) {
-
     }
 
 

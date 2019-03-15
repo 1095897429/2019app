@@ -45,6 +45,8 @@ public class LoadingDialog {
         ));
         //真正的显示
         mDialog.show();
+        //动画展示
+        mLVCircleRing.startAnim();
         //记录标志
         isShow = true;
     }
