@@ -15,4 +15,25 @@
     <color name="blue">#0099FF</color>
     <color name="orange">#FFA82E</color>
 
+
+
+    <!-- 首页模块的一些颜色 -->
+    <color name="gray_main_tab_text">#979797</color>
+    <color name="color_fff2f2">#FFF2F2</color>
+    <color name="color_f26197">#F26197</color>
+    <color name="color_7365e1">#7365E1</color>
+    <color name="color_ffad4c">#FFAD4C</color>
+    <color name="color_ff7d59">#FF7D59</color>
+    <color name="color_646464">#646464</color>
+    <color name="color_f2f2f2">#f2f2f2</color>
+    <color name="color_4d4745">#4d4745</color>
+    <color name="color_ff8260">#FF8260</color>
+    <color name="color_ff4c4c">#ff4c4c</color>
+    <color name="color_ffa333">#FFA333</color>
+    <color name="color_fff64f">#FFF64F</color>
+    <color name="color_ffd966">#FFD966</color>
+    <color name="color_fe3b29">#FE3B29</color>
+
+
+
 </resources>

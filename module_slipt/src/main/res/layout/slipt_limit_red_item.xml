@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <!-- 给予一个默认的宽度😎 -->
+    <View
+        android:layout_width="12dp"
+        android:layout_height="match_parent">
+
+    </View>
+
+    <RelativeLayout
+        android:background="@mipmap/slipt_red_package_item_bg"
+        android:orientation="vertical"
+        android:layout_width="94dp"
+        android:layout_height="142dp">
+
+        <TextView
+            android:id="@+id/status_title"
+            android:text="拆"
+            android:visibility="visible"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="34dp"
+            android:layout_width="22dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="20sp"
+            android:textColor="#F36E49" />
+
+        <ImageView
+            android:id="@+id/status_lock"
+            android:visibility="gone"
+            android:src="@mipmap/slipt_lock"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="34dp"
+            android:layout_width="25dp"
+            android:layout_height="30dp" />
+
+
+        <TextView
+            android:id="@+id/status_text"
+            android:text="完成一次逛逛"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="6dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:background="@drawable/slipt_red_package_item_1_bg"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textSize="11sp"
+            android:textColor="@color/white" />
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

@@ -80,4 +80,7 @@ dependencies {
 
     //eventbus 发布/订阅事件总线
     api rootProject.ext.dependencies["eventbus"]
+
+    //工具类
+    api rootProject.ext.dependencies["utilcode"]
 }

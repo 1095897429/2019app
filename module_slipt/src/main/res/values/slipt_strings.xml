@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">module_slipt</string>
+
+    <string name="slipt_remark">分享收徒链接给好友，好友完成\n下载登录</string>
+</resources>

@@ -59,7 +59,8 @@ dependencies {
         //main模块
         implementation project(':module_main')
         implementation project(':module_wanandroid')
-        implementation project(':module_user')
+        implementation project(':module_usercenter')
+        implementation project(':module_slipt')
     }
 
 

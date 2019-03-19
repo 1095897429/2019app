@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:focusableInTouchMode="true"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:background="@drawable/slipt_head_bg"
+            android:layout_marginBottom="68dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <!--  第一层 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="7dp"
+                android:orientation="vertical">
+
+                <!-- 1.标题 -->
+                <TextView
+                    android:id="@+id/split_title"
+                    android:padding="10dp"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:text="做任务拆红包" />
+
+                <!-- 2.滚动文字 -->
+                <com.example.module_slipt.view.MarqueeView
+                    android:id="@+id/marqueeView"
+                    android:background="#33000000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="31px"
+                    android:minHeight="25dp"
+                    android:textColor="@color/white"
+                    app:mvAnimDuration="500"
+                    app:mvInterval="3000" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                 android:background="@mipmap/bg"
+                 android:layout_width="wrap_content"
+                 android:layout_height="678dp">
+
+             <ImageView
+                 android:src="@mipmap/slipt_img"
+                 android:scaleType="centerCrop"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content" />
+
+
+
+             <LinearLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical">
+
+                 <!-- 3.倒计时 1 -->
+                 <LinearLayout
+                     android:id="@+id/timecount1"
+                     android:visibility="visible"
+                     android:layout_marginBottom="12dp"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical">
+
+                     <LinearLayout
+                         android:layout_marginTop="100dp"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:visibility="visible"
+                         android:gravity="center"
+                         android:orientation="horizontal">
+
+                         <TextView
+                             android:id="@+id/today_time"
+                             android:gravity="center"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textColor="@color/white"
+                             android:textSize="14sp"
+                             android:text="今日第1场" />
+
+                         <Space
+                             android:layout_width="10dp"
+                             android:layout_height="match_parent" />
+
+
+                         <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:orientation="horizontal">
+
+                            <include layout="@layout/slipt_time_count"></include>
+
+                         </LinearLayout>
+
+                         <TextView
+                             android:id="@+id/time_count_down"
+                             android:visibility="gone"
+                             android:layout_width="wrap_content"
+                             android:layout_height="wrap_content"
+                             android:textColor="@color/white"
+                             android:textSize="14sp"
+                             android:text="10:30:20" />
+
+                     </LinearLayout>
+
+                     <FrameLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content">
+
+                         <!-- 4.横向的列表 -->
+                         <android.support.v7.widget.RecyclerView
+                             android:layout_marginTop="10dp"
+                             android:paddingRight="10dp"
+                             android:id="@+id/rv_horizontal"
+                             android:layout_width="match_parent"
+                             android:overScrollMode="never"
+                             android:layout_height="142dp">
+                         </android.support.v7.widget.RecyclerView>
+
+                         <ImageView
+                             android:id="@+id/gone_view"
+                             android:layout_marginLeft="12dp"
+                             android:layout_marginTop="12dp"
+                             android:visibility="gone"
+                             android:src="@mipmap/slipt_guide_view"
+                             android:layout_width="94dp"
+                             android:layout_height="142dp" />
+
+
+                     </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="48dp"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:src="@mipmap/weafare_space"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:src="@mipmap/weafare_space"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:src="@mipmap/weafare_space"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content" />
+                    </LinearLayout>
+
+
+                 </LinearLayout>
+
+                 <!-- 3.倒计时 2 -->
+                 <RelativeLayout
+                     android:id="@+id/timecount2"
+                     android:layout_marginTop="142dp"
+                     android:visibility="gone"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:gravity="center"
+                     android:orientation="vertical">
+
+                     <ImageView
+                         android:src="@mipmap/test"
+                         android:layout_width="match_parent"
+                         android:layout_height="244dp" />
+
+
+                     <TextView
+                         android:id="@+id/today_count_time"
+                         android:gravity="center"
+                         android:layout_centerHorizontal="true"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:textColor="@color/white"
+                         android:textSize="14sp"
+                         android:text="距离下一场" />
+
+
+                     <include
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="10dp"
+                         android:layout_centerHorizontal="true"
+                         android:layout_below="@+id/today_count_time"
+                         layout="@layout/slipt_time_count_next"></include>
+
+                     <TextView
+                         android:id="@+id/time_count_down_next"
+                         android:layout_marginTop="10dp"
+                         android:visibility="gone"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerHorizontal="true"
+                         android:layout_below="@+id/today_count_time"
+                         android:textColor="@color/white"
+                         android:textSize="14sp"
+                         android:text="10:30:24" />
+
+                 </RelativeLayout>
+
+
+
+                 <!-- 5.纵向的列表 -->
+                 <LinearLayout
+                     android:layout_marginLeft="12dp"
+                     android:layout_marginRight="12dp"
+                     android:background="@drawable/slipt_every_task_bg"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center"
+                     android:orientation="vertical">
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:padding="12dp"
+                         android:textColor="#333333"
+                         android:textStyle="bold"
+                         android:textSize="18sp"
+                         android:text="日常任务" />
+
+                     <android.support.v7.widget.RecyclerView
+                         android:id="@+id/rv_vertical"
+                         android:overScrollMode="never"
+                         android:layout_width="match_parent"
+                         android:layout_height="match_parent">
+                     </android.support.v7.widget.RecyclerView>
+
+                 </LinearLayout>
+
+
+             </LinearLayout>
+
+         </RelativeLayout>
+
+
+
+        <!-- 6.福利社的列表 -->
+        <LinearLayout
+            android:padding="12dp"
+            android:background="@drawable/slipt_bg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/text_weafare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="12dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:text="福利社" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_weafare"
+                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/rl_hint_text"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/slipt_hint_text_bg"
+        android:layout_marginBottom="70dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_height="44dp">
+
+        <TextView
+            android:id="@+id/hint_text"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:text="点击福利社任何一条即可再次领取红包哦"
+            android:layout_centerVertical="true"
+            android:paddingTop="12dp"
+            android:paddingLeft="12dp"
+            android:paddingBottom="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:src="@mipmap/slipt_hint_text_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="11dp"
+            android:layout_width="12dp"
+            android:layout_height="22dp" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

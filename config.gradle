@@ -59,6 +59,8 @@ ext{
 
             okhttplogging:"3.7.0",
 
+            utilcode : "1.23.7",
+
 
     ]
 
@@ -111,7 +113,10 @@ ext{
             "okhttplogging"       :"com.squareup.okhttp3:logging-interceptor:${versions["okhttplogging"]}",
 
             //事件订阅
-            "eventbus"          : "org.greenrobot:eventbus:${versions["eventbusVersion"]}"
+            "eventbus"          : "org.greenrobot:eventbus:${versions["eventbusVersion"]}",
+
+            //工具类
+            "utilcode"          : "com.blankj:utilcode:${versions["utilcode"]}"
 
     ]
 }

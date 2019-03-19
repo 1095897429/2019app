@@ -20,4 +20,9 @@ public interface ARouterConfig {
     String USER_FRAGMENT = "/user/UserFragment";
 
 
+    //*************************************拆红包模块*****************************************/
+    /** 拆红包模块 */
+    String SLIPT_FRAGMENT = "/slipt/SliptFragment";
+
+
 }

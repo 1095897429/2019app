@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/slipt_reward_white_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/slipt_reward_top_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="178dp"
+            android:background="@mipmap/slipt_reward_red_top">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="恭喜领取"
+                    android:textColor="#ffffffff"
+                    android:textSize="18sp"
+                    />
+
+                <TextView
+                    android:id="@+id/coin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="+50"
+                    android:drawableRight="@mipmap/slipt_coin"
+                    android:textColor="#ffffffff"
+                    android:textSize="24sp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/toGet"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="立即领取"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:background="@drawable/slipt_weafare_get"
+                    android:textColor="#FF4646"
+                    android:textSize="16sp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/ad_close"
+                android:src="@mipmap/slipt_dialog_close"
+                android:scaleType="centerCrop"
+                android:layout_alignParentRight="true"
+                android:layout_margin="12dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp" />
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+
+        <ImageView
+            android:id="@+id/ad_pic"
+            android:src="@mipmap/slipt_dialog_ad"
+            android:scaleType="centerCrop"
+            android:layout_margin="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="65dp" />
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

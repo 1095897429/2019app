@@ -22,7 +22,6 @@ import com.zl.common_base.utils.ARouterUtils;
 import com.zl.common_base.utils.PermissionUtils;
 import com.zl.common_base.utils.ToastUtils;
 
-import java.nio.channels.Channel;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -30,8 +29,8 @@ import butterknife.BindView;
 
 /***
  * main程序的主界面
- * 1.首页是玩android模块
- * 2.中心是main模块
+ * 1.首页是新闻
+ * 2.中心是拆红包
  * 3.我的是User模块
  */
 
@@ -53,6 +52,10 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
     //用户模块Fragment
     private BaseFragment userFragment = ARouterUtils.getFragment(ARouterConfig.USER_FRAGMENT);
 
+    //拆红包模块Fragment
+    private BaseFragment sliptFragment = ARouterUtils.getFragment(ARouterConfig.SLIPT_FRAGMENT);
+
+
 
     @Override
     protected int getLayoutId() {
@@ -71,12 +74,14 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
         mainTab.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if(checkedId == R.id.rb_main){
+                if(checkedId == R.id.tab_index){
                     changeFragment(ARouterConfig.WAN_MAIN_FRAGMENT);
-                }else if(checkedId == R.id.rb_center){
+                }else if(checkedId == R.id.tab_vedio){
                     changeFragment(ARouterConfig.CENTER_FRAGMENT);
-                }else if(checkedId == R.id.rb_user){
+                }else if(checkedId == R.id.tab_usercenter){
                     changeFragment(ARouterConfig.USER_FRAGMENT);
+                }else if(checkedId == R.id.tab_split_coupon){
+                    changeFragment(ARouterConfig.SLIPT_FRAGMENT);
                 }
             }
         });
@@ -106,6 +111,8 @@ public class MainActivity extends BaseMvpActivity<MainPresenter> implements Main
                 fragment = centerFragment;
             }else if(TextUtils.equals(tag,ARouterConfig.USER_FRAGMENT)){
                 fragment = userFragment;
+            }else if(TextUtils.equals(tag,ARouterConfig.SLIPT_FRAGMENT)){
+                fragment = sliptFragment;
             }
 
             mFragmentList.add(fragment);
